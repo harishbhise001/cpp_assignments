@@ -1,3 +1,18 @@
+/*
+Q2. Write a class for Time and provide the functionality
+Time()
+Time(int h,int m,int s)
+getHour()
+getMinute()
+getSeconds()
+printTime()
+setHour()
+setMinute()
+setSeconds()
+In main create array of objects of Time. Allocate the memory for the
+array and the object dynamically.
+*/
+
 #include "time.h"
 
 int main()
