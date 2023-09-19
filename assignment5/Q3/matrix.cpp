@@ -27,6 +27,34 @@ Matrix::Matrix(int row, int col)
     }
 }
 
+Matrix::Matrix(const Matrix &mat)
+{
+    this->row = mat.row;
+    this->col = mat.col;
+
+    this->arr = new int*[this->row];
+    for(int i=0;i<this->row;i++)
+        arr[i] = new int[this->col];
+
+    for(int i=0;i<this->row;i++)
+        for(int j=0;j<this->col;j++)
+            this->arr[i][j] = mat.arr[i][j];
+}
+
+void Matrix::operator= (const Matrix &mat)
+{
+    this->row = mat.row;
+    this->col = mat.col;
+
+    this->arr = new int*[this->row];
+    for(int i=0;i<this->row;i++)
+        arr[i] = new int[this->col];
+
+    for(int i=0;i<this->row;i++)
+        for(int j=0;j<this->col;j++)
+            arr[i][j] = mat.arr[i][j];
+}
+
 void Matrix::accept()
 {
     cout<<"\nEnter the values in "<<this->row<<" X "<<this->col<<" matrix : "<<endl;
@@ -125,7 +153,7 @@ void Matrix::transpose()
 Matrix::~Matrix()
 {
     for(int i=0;i<this->row;i++)
-        delete arr[i];
+        delete[] arr[i];
     
-    delete arr;
+    delete[] arr;
 }
